@@ -1,14 +1,46 @@
-# Scraping-H1B-visa-info
+# Scraping H1-B Visa Database
+
+This branch introduces a few changes:
+
+1. A single module that contains both classes, as well as the example code in a `main` block.
+
+2.  The code has been cleaned using a linter to move from less than a 4/10 rating to 9.53/10 rating via `pylint`.
+
+You can verify the `pylint` results by running
+
+```
+pylint h1b_scraper.py
+```
+
+3. You may easily run a test after cloning this repository.  Assuming you are running Python 3.x, you should be able to run the following code:
+
+```
+git clone https://github.com/mingen-pan/Scraping-H1B-visa-info.git
+cd Scraping-H1B-visa-info
+git checkout refactor-branch
+python h1b_scraper.py
+```
+
+The results are now stored in the local repository in a `.csv` file called `salary_data.csv`.
+
+4. I created `titles.json` for you to easily update the titles you want to add into `salary_data_json_results.csv` to be considered in a post analysis. Run the following code to create the `.csv` dataset based on `titles.json`.
+
+```
+ipython run_h1b_scraper.py
+```
+
+
+# Scraping-H1B-visa-info (The Original README.md)
 
 The example code can be found on the `example.py`.
 
-This project uses `BeautifulSoup` (aka `bs4`) and `urllib` packages to scrape the H1B visa info website. In order to use this project, it is recommended to run in the `Python3` enviornment and install the packages `bs4`, `urllib`, and `pandas`.
+This project uses `BeautifulSoup` (aka `bs4`) and `urllib` packages to scrape the H1B visa info website. In order to use this project, it is recommended to run in the `Python3` environment and install the packages `bs4`, `urllib`, and `pandas`.
 
 Download the python files and put them into the current path. Then import the file:
 ```
 from h1b_scraper import H1B_Scraper
 ```
-Run the following code to obatin the DataFrame:
+Run the following code to obtain the DataFrame:
 ```
 scraper = H1B_Scraper()
 years = [year for year in range(2017, 2019)] ## get the list [2017, 2018]
@@ -34,7 +66,7 @@ scraper.extract_specific_table(tables, 2018, "Software Engineer")
 
 Then you have the following dataframe:
 
-(Visualization here is bad, but they are well alligned in the dataframe.)
+(Visualization here is bad, but they are well aligned in the dataframe.)
 ```
         EMPLOYER	JOB TITLE	BASE SALARY	LOCATION	SUBMIT DATE	START DATE	CASE STATUS
 0	GOLD SHIELD TECHNOLOGIES LLC	SOFTWARE ENGINEER	36,000	GAINESVILLE, FL	03/22/2018	03/22/2018	DENIED
